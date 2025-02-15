@@ -2,8 +2,6 @@ package colecoes;
 
 import java.util.*;
 
-
-//TESTE
 public class SistemadeBibliotecaDigital {
 
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class SistemadeBibliotecaDigital {
         int comando = 5;
 
         System.out.println("\n----------------------------------------------");
-        System.out.println("Bem-vindo(a) a nossa biblioteca\uD83D\uDCDA");
+        System.out.println("\uD83D\uDCD6   Bem-vindo(a) a nossa biblioteca   \uD83D\uDCDA");
         System.out.println("----------------------------------------------");
 
         ArrayList<Livro> Biblioteca = new ArrayList<>();
@@ -33,7 +31,7 @@ public class SistemadeBibliotecaDigital {
 
         while (comando != 0) {
 
-            System.out.print("\n📞 Digite:\n 1 para Ver livros disponíveis\n 2 para Pegar um livro emprestado\n 3 para Devolver um livro \n 4 para Buscar um livro pelo título \n 0 para sair do sistema: ");
+            System.out.print("\n\uD83D\uDCCC Digite:\n 1\uFE0F⃣ para Ver livros disponíveis\n 2\uFE0F⃣ para Pegar um livro emprestado\n 3\uFE0F⃣ para Devolver um livro \n 4\uFE0F⃣ para Buscar um livro pelo título \n 0\uFE0F⃣ para sair do sistema: ");
             comando = input.nextInt();
             input.nextLine();
 
@@ -41,66 +39,115 @@ public class SistemadeBibliotecaDigital {
             Collections.sort(Biblioteca);
 
             if (comando == 1) {
-                System.out.print("\nLivros disponiveis em ordem alfabetica: ");
+                System.out.print("\nTemos " +Biblioteca.size() + " livros disponiveis, aqui estao eles em ordem alfabetica: ");
                 for (Livro livro : Biblioteca) {
                     System.out.print(livro);
                 }
                 continue;
 
             }
-
-            if (comando == 2) {
-
                 Busca.put(l1.getTituloDoLivro().toLowerCase(), l1);
                 Busca.put(l2.getTituloDoLivro().toLowerCase(), l2);
                 Busca.put(l3.getTituloDoLivro().toLowerCase(), l3);
                 Busca.put(l4.getTituloDoLivro().toLowerCase(), l4);
                 Busca.put(l5.getTituloDoLivro().toLowerCase(), l5);
 
-                System.out.print("\n\uD83D\uDD0EDigite o livro que deseja pegar emprestado: ");
+            if (comando == 2) {
+
+
+                System.out.print("\n\uD83D\uDD0E Digite o livro que deseja pegar emprestado \uD83D\uDCE4 : ");
                 String emprestado = input.nextLine().toLowerCase();
 
-                if (Busca.containsKey(emprestado)){
-                    Livro livroEncontrado = Busca.get(emprestado);
-                    System.out.println("Livro encontrado: " + livroEncontrado.getTituloDoLivro() + "\uD83D\uDCDA Você pode pegá-lo emprestado. Boa leitura");
-                } else {
-                    System.out.println("Livro nao encontrado");
+                Livro livroParaRemover = null;
+
+                for (Livro livro : Biblioteca) {
+                    if (livro.getTituloDoLivro().toLowerCase().equals(emprestado)) {
+                        livroParaRemover = livro;
+                        break;
+                    }
                 }
+
+                if (livroParaRemover != null && Devolucao.size() == 0) {
+                    System.out.println("Livro encontrado: " + livroParaRemover.getTituloDoLivro() + " \uD83D\uDCDA Você pode pegá-lo emprestado. Boa leitura ✅");
+                    Biblioteca.remove(livroParaRemover);
+                    Devolucao.offer(livroParaRemover);
+
+                } else if (livroParaRemover != null && Devolucao.size() >= 1 ){
+                    System.out.println("\nvoce ja tem um livro emprestado no momento, primeiro devolva para poder pegar outro livro ⚠");
+
+                } else {
+                    System.out.println("\nLivro nao encontrado ❌");
+                }
+
                 continue;
             }
 
+            if (comando == 3){
 
-            System.out.print("\uD83D\uDD0EDigite o livro para ver se esta alugado ou nao: ");
-            String livroBuscado = input.nextLine().toLowerCase();
+                if (Devolucao.size() >= 1){
 
-            boolean encontrado = false;
+                    Livro livroDevolvido = Devolucao.peek();
 
-            for (Livro livro : Biblioteca) {
-                if (livro.getTituloDoLivro().equalsIgnoreCase(livroBuscado)) {
+                    String soun = null;
 
-                    System.out.println("✅ O livro '" + livro.getTituloDoLivro() + "' está disponível!");
-                    encontrado = true;
+                    System.out.println("\nO livro que voce tem emprestado eh: " + Devolucao.toString());
+                    System.out.println("\uD83D\uDCE5 tem certeza que deseja devolver esse livro? S/N " +
+                            "\ndigite S para devolver ou N para cancelar essa acao");
+                    soun = input.nextLine();
 
-                    Biblioteca.remove(livro);
-                    Devolucao.offer(livro);
+                    switch (soun){
+                        case "s":
+                            livroDevolvido = Devolucao.poll();
+                            Biblioteca.add(livroDevolvido);
 
-                    break;
+                            System.out.println("O livro " + livroDevolvido + " foi devolvido a nossa biblioteca");
+                            break;
+
+                        case "n":
+                            System.out.println("Ação cancelada. Você ainda possui o livro emprestado.");
+                            break;
+
+                        default:
+                            System.out.println("Opcao invalida. Operacao cancelada");
+                    }
+
+                } else {
+                    System.out.println("\nVoce nao tem nenhum livro emprestado no momento");
+                }
+
+            }
+
+            if (comando == 4){
+
+                String procurar = null;
+
+                System.out.print("\nDigite o titulo do livro que voce esta procurando: ");
+                procurar = input.nextLine().toLowerCase();
+
+                boolean encontrado = false;
+
+                for (Livro livro : Biblioteca) {
+                    if (livro.getTituloDoLivro().toLowerCase().equals(procurar)){
+                        System.out.println("\n\uD83D\uDCD6O livro '" +livro.getTituloDoLivro()+"' esta disponivel na nossa biblioteca \uD83D\uDCDA");
+                        encontrado = true;
+                        break;
+                    }
+
+                }
+
+                if (!encontrado){
+                    System.out.println("\n⚠️ Livro' " + procurar+ "' não encontrado na nossa biblioteca.");
                 }
             }
+        }
 
-            if (!encontrado) {
-                System.out.println("Livro nao disponivel no momento");
-            }
-
-            HashSet<String> livrosEmprestados = new HashSet<>();
-            livrosEmprestados.add(livroBuscado);
-
-            System.out.println("\nlivros emprestados no momento: " + livrosEmprestados);
-
-
+        System.out.println("\nProgama finalizado, ate a proxima \uD83D\uDC4B \uD83D\uDCDA");
             input.close();
+
+
+
         }
 
     }
 
-}
+
