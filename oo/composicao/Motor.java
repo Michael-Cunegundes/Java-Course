@@ -21,4 +21,8 @@ public class Motor {
         }
 
     }
+<<<<<<< HEAD:oo/composicao/Motor.java
 }
+=======
+}
+>>>>>>> 0694af910d60dffc374bc1ac1acd045e946df987:src/oo/composicao/Motor.java

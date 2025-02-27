@@ -1,0 +1,18 @@
+[33mcommit 57f33dc31343c2b8bf3796f42ae6b76752ad16f6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: e3f9512 9171e97
+Author: Michael Cunegundes <michael.cunegundes@gmail.com>
+Date:   Thu Feb 13 21:01:23 2025 -0300
+
+    Corrigindo conflitos e organizando o código de SistemadeBibliotecaDigital
+
+[33mcommit e3f9512e369a3a26a62397f975b893a7af4ac94c[m
+Author: Michel Cunegundes <michael.cunegundes@gmail.com>
+Date:   Wed Feb 12 23:36:23 2025 -0300
+
+    commit
+
+[33mcommit 9171e974561f6874434d469283e45cde1c5304f8[m
+Author: Michel Cunegundes <michael.cunegundes@gmail.com>
+Date:   Wed Feb 12 23:36:23 2025 -0300
+
+    first commit
