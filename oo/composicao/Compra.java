@@ -8,14 +8,18 @@ public class Compra {
 
     ArrayList <Item> itens = new ArrayList<Item>();
 
-
-    void adicionarItem (String nome, int quantidade, double preco){
-        this.adicionarItem(nome,quantidade,preco);
+    public Compra() {
+        this.itens = new ArrayList<>(); // Inicializa a lista para evitar erro de NullPointerException
     }
 
-    void adicionarItem (Item item){
-        itens.add(item);
-        item.compra = this;
+    public void adicionarItem(String nome, int quantidade, double preco) {
+        // Criando um novo Item e adicionando à lista
+        this.itens.add(new Item(nome, quantidade, preco));
+    }
+
+    public void adicionarItem(Item item) {
+        // Adicionando um item já criado
+        this.itens.add(item);
     }
 
 
