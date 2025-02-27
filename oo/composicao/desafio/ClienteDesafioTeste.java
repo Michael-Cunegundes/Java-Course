@@ -8,13 +8,16 @@ public class ClienteDesafioTeste {
 
         ProdutoDesafio produto1 = new ProdutoDesafio("Caneca", 160.50);
         ProdutoDesafio produto2 = new ProdutoDesafio("Camisa", 1200.00);
+        ProdutoDesafio produto3 = new ProdutoDesafio("Celular", 2000.00);
 
         ItemDesafio item1 = new ItemDesafio(produto1,2);
         ItemDesafio item2 = new ItemDesafio(produto2,1);
+        ItemDesafio item3 = new ItemDesafio(produto3, 1);
 
         CompraDesafio compraDesafio = new CompraDesafio(cliente1);
         compraDesafio.adicionarItem(item1);
         compraDesafio.adicionarItem(item2);
+        compraDesafio.adicionarItem(item3);
 
         cliente1.adicionarCompra(compraDesafio);
 
