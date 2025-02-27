@@ -43,5 +43,22 @@ public class ClienteDesafioTeste {
         System.out.println(cliente2.listaDeCompra.get(0));
         cliente2.obterValorTotal();
 
+
+        ClienteDesafio cliente3 = new ClienteDesafio("Pedro");
+
+        ProdutoDesafio produto21 = new ProdutoDesafio("Cadeira", 500.00);
+
+        ItemDesafio item21 = new ItemDesafio(produto21, 1);
+
+        CompraDesafio compraDesafio21 = new CompraDesafio(cliente3);
+
+        compraDesafio21.adicionarItem(item21);
+
+        cliente3.adicionarCompra(compraDesafio21);
+
+        System.out.println(cliente3.listaDeCompra.get(0));
+
+        cliente3.obterValorTotal();
+
     }
 }
