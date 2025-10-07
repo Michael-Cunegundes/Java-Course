@@ -25,6 +25,7 @@ public class CarroTeste {
         c1.frear();
 
         System.out.println(c1.motor.carro.motor.carro.motor.giros());
+        System.out.println(c1.motor.carro.motor.carro.motor.carro.motor.carro.estaLigado());
 
     }
 }

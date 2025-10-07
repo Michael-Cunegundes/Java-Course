@@ -6,14 +6,15 @@ public class Portas {
 
     boolean aberta = false;
 
-    int segurancaPorta() {
+    void abrir(){
+        aberta = true;
+    }
 
-        if (!aberta) {
-            return 0;
+    void fechar(){
+        aberta = false;
+    }
 
-        } else {
-            return 1;
-        }
-
+    boolean estaAberta(){
+        return aberta;
     }
 }

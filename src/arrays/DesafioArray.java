@@ -1,7 +1,6 @@
 package arrays;
 
 import java.util.Arrays;
-//System.out.println(Arrays.toString(notasAlunoA));
 
 import java.util.Scanner;
 
