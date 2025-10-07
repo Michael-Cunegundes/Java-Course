@@ -1,0 +1,73 @@
+<<<<<<< HEAD:src/oo/composicao/Aluno.java
+package oo.composicao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Aluno {
+
+    final String nome;
+    final List<Curso> cursos = new ArrayList<>();
+
+    Aluno (String nome){
+        this.nome = nome;
+    }
+
+    void adicionarCursos(Curso curso){
+        this.cursos.add(curso);
+        curso.alunos.add(this);
+
+    }
+
+    Curso obterCursoPorNome(String nome){
+        for(Curso curso : this.cursos){
+            if (curso.nome.equalsIgnoreCase(nome)) {
+                return curso;
+            }
+        }
+        return null;
+    }
+
+
+    public String toString(){
+        return nome;
+    }
+
+=======
+package oo.composicao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Aluno {
+
+    final String nome;
+    final List<Curso> cursos = new ArrayList<>();
+
+    Aluno (String nome){
+        this.nome = nome;
+    }
+
+    void adicionarCursos(Curso curso){
+        this.cursos.add(curso);
+        curso.alunos.add(this);
+
+    }
+
+    Curso obterCursoPorNome(String nome){
+        for(Curso curso : this.cursos){
+            if (curso.nome.equalsIgnoreCase(nome)) {
+                return curso;
+            }
+        }
+        return null;
+    }
+
+
+
+    public String toString(){
+        return nome;
+    }
+
+>>>>>>> 79c0e9ce57b4a3d3003ee70b04c845f06244bcf7:composicao/Aluno.java
+}
