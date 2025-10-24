@@ -8,7 +8,7 @@ public class EmpresaTest {
 
         System.out.println("Salario do " +gerente.nome + " " + gerente.salario);
         gerente.calcularPagamento(2.000);
-        System.out.println("Salario do " +gerente.nome + " + bonus:  " + gerente.salario);
+        System.out.println("Salario doo " +gerente.nome + " + bonus:  " + gerente.salario);
 
         Desenvolvedor desenvolvedor = new Desenvolvedor("Joao", 2.600);
         System.out.println("\nSalario do " + desenvolvedor.nome + " que trabalha com " + desenvolvedor.linguagem + " : " + desenvolvedor.salario);
