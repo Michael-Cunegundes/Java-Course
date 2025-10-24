@@ -18,9 +18,9 @@ public class Cliente {
 
     public void obterValorTotal() {
         double total = 0;
-        for (Compra compra : listaDeCompra) { // Percorre todas as compras do cliente
-            for (Item item : compra.listaDeItens) { // Percorre todos os itens da compra
-                total += item.produto.preco * item.quantidade; // Multiplica preço pela quantidade
+        for (Compra compra : listaDeCompra) {
+            for (Item item : compra.listaDeItens) {
+                total += item.produto.preco * item.quantidade;
             }
         }
         System.out.println("O valor total das compras de " + nome + " é R$ " + total);
